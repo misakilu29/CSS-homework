@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .container {
+            height: 50px;
+            margin: 20px auto;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-around
+        }
+        .logo-toyota {
+            vertical-align:middle;
+        }
+        .menu_btn { 
+            width: 40px;
+            height: 40px;
+            display: block;
+        }
+        .menu_btn .i{
+            display: block;
+            overflow: hidden;
+        }
+        #toggler:checked ~ .row nav {
+            left: 0;
+        }
+        /* .menu_btn::before{
+            content:"";
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color:#aaa
+        } */
+        nav {
+            width: 80%;
+            height:calc(100vh-50px);
+            background-color:azure;
+            position: absolute;
+            top: 50px;
+            /* left: -100%;
+            transition:.5s */
+        }
+        .menu_group a {
+            display:block;
+            color:black;
+            font-weight:bold;
+            border-bottom: 1px solid black;
+        }
+        .menu_group img {
+            display: inline;
+        }
+
+        @media screen and (min-width:768px){
+            .menu_btn{display:none}
+            .row {
+                display:flex;
+                justify-content:space-between
+            }
+            .logo-toyota {
+                /* justify-content: flex-start; */
+            }
+            .menu_group{
+                display:flex;
+                justify-content:flex-end;
+                top: 0;
+                width:auto;
+                height: auto;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row align-center">
+            <div class="menu_btn" id="toggler">
+                <i class="fas fa-bars"></i>
+            </div>
+            <a href="#" class="logo-toyota">
+                <img src="./images/toyota/globaltoyota_logo.svg" alt="">
+            </a>
+            <div class="nav-right">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <nav class="menu_group">
+                <a href="#">Company</a>
+                <a href="#">Newsroom</a>
+                <a href="#">Mobility</a>
+                <a href="#">Sustainability</a>
+                <a href="#">IR</a>
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+                <a href="">MAIL ALERT</a>
+                <a href="">Downloadable</a>
+            </nav>
+            
+        </div>
+        
+        
+        <!-- header -->
+        
+        <!-- <div class="row picks_area">
+            <a href="picks_link">
+                <img src="./images/toyota/001_sp.jpg" alt="">
+            </a>
+            <div class="picks_category">
+                <span>our picks</span>
+            </div>
+            <time class="picks_time" datetime="2021-06-10">
+                <p>Jun, 10, 2021</p>
+            </time>
+            <h2 class="picks_title"> Toyota's New Land Cruiser Makes World Premiere</h2>
+        </div>
+
+        <div class="row notification">
+            <h3>Notification: Toyota's response to the spread of COVID-19 (Novel Coronavirus) infections</h3>
+        </div> -->
+
+        <!-- NEWS picks -->
+
+        <!-- <div class="row newsroom">
+            <div class="newsbox">
+                <div class="title">
+                    <div class="grid_img">
+                        <a href="#">
+                            <img src="./images/toyota/20210715_01_t_w610.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="grid_detail">
+                        <div class="datetime">Jul. 15, 2021</div>
+                        <a class="grid_title" href="#" target="_self">
+                            <span>Woven Planet Holdings, a Subsidiary of Toyota, to Acquire CARMERA</span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="title">
+                    <div class="grid_img">
+                        <a href="#">
+                            <img src="./images/toyota/20210713_01_t_w610.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="grid_detail">
+                        <div class="datetime">Jul. 13, 2021</div>
+                        <a class="grid_title" href="#" target="_self">
+                            <span>LEXUS DESIGN AWARD 2022: Call for Entries Now Open</span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="title">
+                    <div class="grid_img">
+                        <a href="#">
+                            <img src="./images/toyota/20210712_01_t_w610.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="grid_detail">
+                        <div class="datetime">Jul. 12, 2021</div>
+                        <a class="grid_title" href="#" target="_self">
+                            <span>TOYOTA GAZOO Racing Motivated for Monza</span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="title">
+                    <div class="grid_img">
+                        <a href="#">
+                            <img src="./images/toyota/20210709_02_t_w610.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="grid_detail">
+                        <div class="datetime">Jul. 09, 2021</div>
+                        <a class="grid_title" href="#" target="_self">
+                            <span>Rally Estonia: Preview 
+                                <br>
+                                TOYOTA GAZOO Racing aims to continue its winning WRC form
+                            </span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="title">
+                    <div class="grid_img">
+                        <a href="#">
+                            <img src="./images/toyota/20210701_02_t_w610.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="grid_detail">
+                        <div class="datetime">Jul. 01, 2021</div>
+                        <a class="grid_title" href="#" target="_self">
+                            <span>"Booking Car", A Cloud Service for Company Cars, Launched at Toyota Dealers and Toyota Rental & Lease Agencies in Japan
+                            </span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- pic group -->
+
+        <!-- <div class="footer">
+            <a href="#" class="a">Site Map</a>
+            <a href="#" class="a">Home</a>
+            <a href="#" class="a">Privacy Notice</a>
+            <a href="#" class="a">Cookies Policy</a>
+            <a href="#" class="a">Terms of Use</a>
+            <a href="#" class="a">Do Not Sell My Info(U.S. residents)</a>
+            <a href="#" class="a">FAQs</a>
+            <a href="#" class="a">Feedback</a>
+        </div> -->
+
+
+    </div>
+</body>
+</html>
