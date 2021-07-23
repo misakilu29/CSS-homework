@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toyota-demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+            box-sizing: border-box;
+            word-wrap:break-word;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 1px;
+        }
+    a {
+        color: black;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    /* div{
+        display: block;
+    } */
+
+    .container {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 ;
+    }
+
+    .row {
+        display: flex;
+        /* margin-right: -15px; */
+    }
+    .row header {
+        position: fixed;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+        min-width: 943px;
+        height: 80px;
+        margin: 0 auto;
+        border-bottom: 1px solid #e8e8e8;
+        background-color: #fff;
+        color: #212121;
+    }
+    .fa-bars {
+    display: none;
+    }
+    #main_logo {
+    display: inline-block;
+    overflow: hidden;
+    width: 136px;
+    height: 24px;
+    margin: 25px 0;
+    background-image: url(./images/toyota/globaltoyota_logo.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 136px 24px;
+    text-indent: 100%;
+    /* vertical-align: top; */
+    font-size: 0;
+    white-space: nowrap;
+    }
+    .global_nav{
+        display: flex;
+    }
+    .section1 {
+        justify-content:space-between;
+        align-items: center;
+    }
+    .nav_text {
+        font-weight: bolder;
+        padding: 0px 15px;
+        text-decoration: none;
+        flex-wrap: nowrap;
+    }
+    .cruiser {
+        max-width: 1440px;
+        padding: 10px 0;
+        vertical-align: bottom;
+        transition:.5s;
+    }
+    .newcar {
+        /* width: 100%;
+        overflow: hidden; */
+    }
+    .pick_title_links {
+        position: relative;
+        min-height: 236px;
+    }
+    .picks {
+        width: 80px;
+        /* height: 22px; */
+        border: 1px solid red;
+        text-align: center;
+        background-color:red;
+    }
+    .tags {
+        position: absolute;
+        color: white;
+        padding: 30px;
+        bottom: 0;
+    }
+    .cruiser:hover {
+            opacity: 0.9;
+        }
+    .notification {
+        color:red;
+        text-align: center;
+        opacity: 0.5;
+        transition: .5s;
+        margin:20px
+    }
+    .notification:hover:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+    }
+    .information{
+        display:flex;
+        flex-wrap: wrap;
+    }
+    .newsbox {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 50%;
+        
+    }
+    .updatebox{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 50%;
+    }
+    .news {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* flex-grow: 1; */
+        max-height: 16.66666666666667%;
+        padding: 18px 7%;
+    }
+    .titlebox {
+        flex-grow: 3;
+        max-height: 83.33333333333333%;
+        display: flex;
+        flex-direction: column;
+        margin-top: -8px;
+        margin-bottom: 0;
+    }
+    
+    .latest_updates{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* flex-grow: 1; */
+        max-height: 16.66666666666667%;
+        padding: 20px 7% 0;
+        margin-bottom: 30px;
+    }
+    .boxtitle {
+        flex-grow: 3;
+        max-height: 83.33333333333333%;
+        display: flex;
+        flex-direction: column;
+        margin-top: -20px;
+        margin-bottom: 0;
+    }
+    .grid_tile {
+        display: flex;
+        max-height: 33.3%;
+        padding:0;
+        flex-grow: 1;
+        /* position: relative; */
+        vertical-align: center;
+        letter-spacing:normal;
+        transition: 0.5s;
+        margin:auto;
+        width: 100%;
+        
+    }
+    .grid_image {
+        margin-bottom: 0;
+        position: relative;
+        transition: 0.5s;
+        overflow: hidden;
+        min-width: 35%;
+        width: 26%;
+        /* background-color: #212121; */
+    }
+    .grid_image img {
+        width: 100%;
+        
+    }
+    .grid_image:hover {
+        opacity: 0.8;
+    }
+    .grid_detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 15px;
+    }
+    .section {
+        padding: 50px 100px;
+        padding-bottom: 40px;
+    }
+    .title_ex{
+        text-align: center;
+        font-size: 40px;
+    }
+    .explorebox {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content:center;
+        max-width: 1206px;
+        margin: auto;
+    }
+    .explore_title{
+        position: relative;
+        transition: 0.5s;
+        object-fit:contain;
+        width: 33.3%;
+        overflow: hidden;
+    }
+    /* .exp {
+        width:33.3%;
+        background-position: center;
+        background-size: cover;
+    } */
+    .explore_title span {
+        position: absolute;
+        bottom: 15px;
+        color:white;
+        overflow: hidden;
+        line-height: 1.5;
+        margin: 20px;
+    }
+    .explore_title:hover {
+        opacity: 0.8;
+    }
+    #footer {
+        width: 100%;
+        background-color: #424242;
+        color: #fff;
+    }
+    #footer .footer_head {
+        padding: 48px 80px;
+    }
+    
+    #footer .footer_head, #footer .footer_bottom .footer_bottom_inner {
+        width: 100%;
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+    #footer .footer_bottom_inner {
+        padding: 26px 80px;
+}
+    #footer .footer_bottom {
+        background-color: #212121;
+        font-size:12px;
+    }
+    /* pc */
+    @media screen and (max-width:559px){
+    .container {
+        margin-left: -10px;
+    }
+    #main_logo {
+        margin: 20px 0 10px 110px; 
+        }
+    .global_nav{
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+    .link {
+        display: none;
+    }
+    
+    .banner {
+        padding: 0 16px;
+        min-height: 175px;
+        padding-top: 0;
+    }
+    .cruiser {
+        width: 100%;
+    }
+    .picks_pc {
+        display: none;
+    }
+    .tags{
+        padding: 0;
+        font-size: 12px;
+    }
+    .picks {
+        width: 70px;
+    }
+    .notification{
+        font-size:12px;
+    }
+    .newsbox {
+        width: 100%;
+        border-right: 0;
+    }
+    .updatebox {
+        width: 100%;
+        border-right: 0;
+    }
+    #pickcar {
+        font-size: 15px;
+        text-align:left
+    }
+    .explore_title{
+        width: 100%;
+    }
+    .title_ex {
+        font-size:24px ;
+    }
+    .section {
+        padding: 0;
+    }
+    .img-300 {
+        width: 100%;
+    }
+    }
+    @media screen and (min-width: 600px), print{
+    .picks_sp {
+        display: none;
+    }
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row section1" id="header_inner">
+            <a href="#" id="main_logo">TOYOTA</a>
+            <nav class="header_nav global_nav">
+                <i class="fas fa-bars"></i>
+                <div class="nav_center_area">
+                    <a href="#" class="nav_text link">Company</a>
+                    <a href="#" class="nav_text link">Newsroom</a>
+                    <a href="#" class="nav_text link">Mobility</a>
+                    <a href="#" class="nav_text link">Sustainability</a>
+                    <a href="#" class="nav_text link"> IR</a>
+                </div>
+                <div class="nav_right_area">
+                    <i class="fas fa-search nav_text"></i>
+                    <a href="#" class="nav_text link">Downloadable Assets</a>
+                    <a href="#" class="nav_text link">Lineup</a>
+                    <a href="#" class="nav_text link">JPN</a>
+                    <i class="fas fa-ellipsis-h nav_text link"></i>
+                </div>
+            </nav>
+        </div>
+        <!-- header -->
+        <div class="row banner newcar">
+            <div class="pick_title_links">
+                <img src="./images/toyota/001_pc.jpg" class="cruiser picks_pc" alt="">
+                <img src="./images/toyota/001_sp.jpg" class="cruiser picks_sp" alt="">
+                <div class="tags tags_pc tags_sp">   
+                    <p class="picks">Our Picks</p>
+                    <p class="time">Jun. 10,2021</p>
+                    <h2 id="pickcar" class="title">Toyota's New Land Cruiser Makes World Premiere</h2>
+                </div>
+            </div>
+            
+        </div>
+        <!-- main -->
+        <div class="notification">
+            <h3>Toyota's response to the spread of COVID-19 (Novel Coronavirus) infections</h3>
+        </div>
+        <!-- notification -->
+        <div class="row information">
+            <div class="newsbox">
+                    <div class="news">
+                        <h2>NEWS Room</h2>
+                        <a href="#">more ></a>
+                    </div>
+                    <div class="titlebox">
+                        <div class="grid_tile">
+                            <div class="grid_image">
+                                <img src="./images/toyota/20210715_01_t_w610.jpg" style="" alt="">
+                            </div>
+                            <div class="grid_detail">
+                                <div class="times">Jul. 15, 2021</div>
+                                <a href="#">
+                                    <span>Woven Planet Holdings, a Subsidiary of Toyota, to Acquire CARMERA</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid_tile">
+                            <div class="grid_image">
+                                <img src="./images/toyota/20210713_01_t_w610.jpg" alt="">
+                            </div>
+                            <div class="grid_detail">
+                                <div class="times">Jul. 13, 2021</div>
+                                <a href="#">
+                                    <span>LEXUS DESIGN AWARD 2022: Call for Entries Now Open</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid_tile">
+                            <div class="grid_image">
+                                <img src="./images/toyota/20210712_01_t_w610.jpg" alt="">
+                            </div>
+                            <div class="grid_detail">
+                                <div class="times">Jul. 12, 2021</div>
+                                <a href="#">
+                                    <span>TOYOTA GAZOO Racing Motivated for Monza</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid_tile">
+                            <div class="grid_image">
+                                <img src="./images/toyota/20210709_02_t_w610.jpg" alt="">
+                            </div>
+                            <div class="grid_detail">
+                                <div class="times">Jul. 09, 2021</div>
+                                <a href="#">
+                                    <span>TOYOTA GAZOO Racing aims to continue its winning WRC form</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid_tile">
+                            <div class="grid_image">
+                                <img src="./images/toyota/20210701_02_t_w610.jpg" alt="">
+                            </div>
+                            <div class="grid_detail">
+                                <div class="times">Jul. 01, 2021</div>
+                                <a href="#">
+                                    <span>
+                                        "Booking Car", A Cloud Service for Company Cars, </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="updatebox">
+                    <div class="latest_updates">
+                        <h2>Latest Updates</h2>
+                        <a href="#">more ></a>
+                    </div>
+                    <div class="boxtitle">
+                        <div class="grid_tile">
+                            <div class="grid_image">
+                                <img src="./images/toyota/sustainability_ogp_002.jpg" alt="">
+                            </div>
+                            <div class="grid_detail">
+                                <div class="times">Jun. 23, 2021</div>
+                                <a href="#">
+                                    <span>
+                                        Sustainability Top has been updated
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid_tile">
+                            <div class="grid_image">
+                                <img src="./images/toyota/sdgs_kv_ogp_001.jpg" alt="">
+                            </div>
+                            <div class="grid_detail">
+                                <div class="times">Jun. 23, 2021</div>
+                                <a href="#">
+                                    <span>
+                                        SDGs Initiatives has been updated
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid_tile">
+                            <div class="grid_image">
+                                <img src="./images/toyota/diversity-and-inclusion_ogp_001.jpg" alt="">
+                            </div>
+                            <div class="grid_detail">
+                                <div class="times">Jun. 01, 2021</div>
+                                <a href="#">
+                                    <span>
+                                        Action Plan to Advance Measures in Support 
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid_tile">
+                            <div class="grid_image">
+                                <img src="./images/toyota/environmental_ogp_003.jpg" alt="">
+                            </div>
+                            <div class="grid_detail">
+                                <div class="times">Jun. 01, 2021</div>
+                                <a href="#">
+                                    <span>
+                                        Environmental Initiatives has been updated 
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid_tile">
+                            <div class="grid_image">
+                                <img src="./images/toyota/sdb2020_ogp_005.jpg" alt="">
+                            </div>
+                            <div class="grid_detail">
+                                <div class="times">Mar. 29, 2021</div>
+                                <a href="#">
+                                    <span>
+                                        Sustainability Data Book has been updated 
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- information -->
+        <div class="">
+            <div class="section">
+                <h2 class="title_ex">Explore</h2>
+                <div class="explorebox">
+                    <div class="explore_title">
+                        <div class=exp>
+                            <img src="./images/toyota/20210419_01_t_w610.jpg" class="img-300" alt="">
+                        </div>
+                        <span>Toyota announces its new BEV series, Toyota bZ</span>
+                    </div>
+                    <div class="explore_title">
+                        <div class="exp" >
+                            <!-- style="background-image: url('./images/toyota/sdgs_t_w610_001); -->
+                            <img src="./images/toyota/sdgs_t_w610_001.jpg" class="img-300" alt="">
+                        </div>
+                        <span>SDGs Initiatives</span>
+                    </div>
+                    <div class="explore_title">
+                        <div class="exp">
+                            <img src="./images/toyota/20210408_02_t_w610.jpg" class="img-300"alt="">
+                        </div>
+                        <span>Toyota Launches LS and Mirai Equipped with "Advanced Drive" that Enables Drivers and Cars to Drive Together in Japan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- explore_title -->
+        <div id="footer">
+            <div class="footer_head">
+                <div class="footer_global_nav">
+                    
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="footer_bottom_inner">
+                    <p class="copyright">© 1995-2021 TOYOTA MOTOR CORPORATION. <span class="copy_break">All Rights Reserved.</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
